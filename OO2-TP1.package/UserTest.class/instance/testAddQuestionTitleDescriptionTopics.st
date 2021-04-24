@@ -1,8 +1,13 @@
 test
 testAddQuestionTitleDescriptionTopics
-	self assert: user questions size equals: 1.
+	| question |
+	question := Question
+		title: 'hola'
+		Description: 'Bandas de jazz'
+		Topics: topics2
+		User: user.
 	user
-		addQuestionTitle: 'alguien conoce un buen artista de jazz?'
-		Description: 'me gustaria saberlo'
+		addQuestionTitle: 'hola'
+		Description: 'Bandas de jazz'
 		Topics: topics2.
-	self assert: user questions size equals: 2
+	self assert: (user questionIn: question) equals: true
